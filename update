@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Agentic Marketers Vault — one-line installer + updater.
 # Usage (client pastes this):
-#   curl -fsSL https://install.agentic-marketers.com/update | bash
+#   curl -fsSL https://agentic-marketers.vercel.app/update | bash
 #
 # First run: connects the client to GitHub and clones their vault.
 # Every run after: pulls the latest template, leaving their own data untouched.

@@ -59,7 +59,7 @@ fi
 # --- 4. install (first run) or update (every run after) ---------------------
 if [ -f "$VAULT_DIR/AGENTS.md" ] && [ -d "$VAULT_DIR/Adapters" ]; then
   say "Updating your vault at $VAULT_DIR ..."
-  if [ -x "$VAULT_DIR/Scripts/install/update-vault.sh" ]; then
+  if [ -f "$VAULT_DIR/Scripts/install/update-vault.sh" ]; then
     ( cd "$VAULT_DIR" && bash Scripts/install/update-vault.sh )
   else
     die "Vault found but its updater is missing. Contact support."

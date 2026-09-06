@@ -6,96 +6,72 @@
 <title>Vault OS 1.0 — Agentic Marketers</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#e8e2d4;--paper2:#efeade;--card:#141019;--ink:#181310;--ink-soft:#3b352d;--muted:#736a5b;
-    --line:#cdc5b2;--line-soft:#dcd5c4;--accent:#2b2ad0;--accent-ink:#2624b0;--accent-soft:rgba(43,42,208,.09);
-    --mint:#1f6b47;--amber:#9a6212;--lilac:#b3a8ff;
-    --serif:"Fraunces",Georgia,serif;--sans:"Hanken Grotesk",-apple-system,system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
-    --nav:270px;}
+    --paper:#e8e2d4;--ink:#181310;--ink2:#3b352d;--muted:#736a5b;--line:#cdc5b2;--line2:#dcd5c4;
+    --accent:#2b2ad0;--accent2:#2624b0;--soft:rgba(43,42,208,.09);--card:#141019;
+    --serif:"Fraunces",Georgia,serif;--sans:"Hanken Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",Menlo,monospace;}
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;scroll-padding-top:24px}
-  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;
-    background-image:radial-gradient(1200px 700px at 90% -10%,rgba(43,42,208,.05),transparent 60%);}
-  ::selection{background:var(--accent);color:#fff}
-  a{color:var(--accent-ink);text-decoration:none}a:hover{text-decoration:underline}
-  code{font-family:var(--mono);font-size:.88em;background:var(--accent-soft);color:var(--accent-ink);padding:2px 6px;border-radius:5px}
+  html{scroll-behavior:smooth;scroll-padding-top:20px}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55}
+  a{color:var(--accent2);text-decoration:none}a:hover{text-decoration:underline}
+  code{font-family:var(--mono);font-size:.88em;background:var(--soft);color:var(--accent2);padding:2px 6px;border-radius:5px}
 
-  .layout{display:flex;min-height:100vh;max-width:1440px;margin:0 auto}
-  /* sidebar */
-  .side{width:var(--nav);flex:0 0 var(--nav);border-right:1px solid var(--line);padding:36px 26px 60px;position:sticky;top:0;height:100vh;overflow-y:auto}
-  .logo{display:flex;align-items:center;gap:11px;margin-bottom:8px}
-  .logo .mk{width:26px;height:26px;border:1.6px solid var(--ink);border-radius:50%;position:relative;flex:0 0 auto}
+  .layout{display:flex;max-width:1340px;margin:0 auto}
+  .side{width:230px;flex:0 0 230px;border-right:1px solid var(--line);padding:34px 22px 60px;position:sticky;top:0;height:100vh;overflow-y:auto}
+  .logo{display:flex;align-items:center;gap:10px}
+  .logo .mk{width:24px;height:24px;border:1.6px solid var(--ink);border-radius:50%;position:relative}
   .logo .mk::after{content:"";position:absolute;inset:6px;background:var(--accent);border-radius:50%}
-  .logo b{font-family:var(--mono);font-size:11.5px;letter-spacing:.15em;text-transform:uppercase}
-  .ver{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em;margin-bottom:26px;padding-left:37px}
+  .logo b{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+  .ver{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin:6px 0 22px 34px;letter-spacing:.1em}
   .side nav{display:flex;flex-direction:column;gap:1px}
-  .side nav .grp{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:20px 0 7px}
-  .side nav a{padding:6px 10px;border-radius:7px;color:var(--ink-soft);font-size:14.5px;transition:.15s}
-  .side nav a:hover{background:var(--accent-soft);color:var(--accent-ink);text-decoration:none}
+  .side nav a{padding:7px 10px;border-radius:7px;color:var(--ink2);font-size:14.5px}
+  .side nav a:hover{background:var(--soft);color:var(--accent2);text-decoration:none}
 
-  /* main */
-  main{flex:1;min-width:0;padding:56px clamp(24px,5vw,72px) 120px}
-  section{margin-bottom:76px;scroll-margin-top:20px}
-  h1{font-family:var(--serif);font-size:clamp(42px,6vw,74px);line-height:1;font-weight:600;letter-spacing:-.022em;max-width:16ch}
-  h1 em{font-style:italic;font-weight:500;color:var(--accent-ink)}
-  h2{font-family:var(--serif);font-size:clamp(28px,3.6vw,42px);font-weight:600;letter-spacing:-.018em;line-height:1.1;margin-bottom:14px}
-  h3{font-family:var(--serif);font-size:22px;font-weight:600;margin:30px 0 10px}
-  .kicker{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:14px;display:flex;align-items:center;gap:12px}
-  .kicker::before{content:"";width:28px;height:1.5px;background:var(--accent);opacity:.6}
-  .lede{font-size:clamp(17px,1.9vw,21px);color:var(--ink-soft);max-width:62ch;margin-top:18px}
-  p{max-width:68ch;color:var(--ink-soft)}p+p{margin-top:12px}
+  main{flex:1;min-width:0;padding:48px clamp(22px,4vw,60px) 110px}
+  section{margin-bottom:64px;scroll-margin-top:16px}
+  h1{font-family:var(--serif);font-size:clamp(38px,5.4vw,62px);line-height:1.02;font-weight:600;letter-spacing:-.02em}
+  h2{font-family:var(--serif);font-size:clamp(26px,3.2vw,36px);font-weight:600;letter-spacing:-.015em;margin-bottom:6px}
+  h3{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2);margin:26px 0 10px}
+  .sub{color:var(--muted);font-size:16px;margin-top:8px;max-width:60ch}
 
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;margin:38px 0 0;max-width:760px}
-  .stat{border:1px solid var(--line);border-radius:12px;padding:18px;background:rgba(255,255,255,.28)}
-  .stat .n{font-family:var(--serif);font-size:38px;font-weight:600;line-height:1;color:var(--ink)}
-  .stat .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:7px}
+  .stats{display:flex;gap:26px;flex-wrap:wrap;margin-top:26px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stat .n{font-family:var(--serif);font-size:34px;font-weight:600;line-height:1}
+  .stat .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px}
 
-  .cmd{border-top:1px solid var(--line);padding:16px 0;display:grid;grid-template-columns:190px 1fr;gap:22px;align-items:start}
-  .cmd:last-child{border-bottom:1px solid var(--line)}
-  .cmd .c{font-family:var(--mono);font-size:14.5px;color:var(--accent-ink);font-weight:500}
-  .cmd .d{font-size:15.5px;color:var(--ink-soft)}
-  .cmd .d b{color:var(--ink);font-weight:650}
-  .cmd .when{display:block;font-size:13.5px;color:var(--muted);margin-top:4px}
+  /* simple two-col rows */
+  .row{display:grid;grid-template-columns:180px 1fr;gap:18px;padding:10px 0;border-top:1px solid var(--line2);font-size:15.5px}
+  .row:last-child{border-bottom:1px solid var(--line2)}
+  .row .k{font-family:var(--mono);font-size:14px;color:var(--accent2)}
+  .row .v{color:var(--ink2)}
 
-  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:26px}
-  .box{border:1px solid var(--line);border-radius:12px;padding:20px;background:rgba(255,255,255,.28)}
-  .box h4{font-family:var(--serif);font-size:19px;font-weight:600;margin-bottom:6px}
-  .box .r{font-family:var(--mono);font-size:12px;color:var(--accent-ink);margin-bottom:8px}
-  .box p{font-size:14.5px;margin:0}
+  /* skill category blocks */
+  .cat{border-top:1px solid var(--line);padding:16px 0}
+  .cat:last-of-type{border-bottom:1px solid var(--line)}
+  .cat .head{display:flex;align-items:baseline;gap:10px;margin-bottom:9px}
+  .cat .head b{font-family:var(--serif);font-size:21px;font-weight:600}
+  .cat .head span{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-family:var(--mono);font-size:12.5px;background:rgba(255,255,255,.4);border:1px solid var(--line2);
+    color:var(--ink2);padding:4px 9px;border-radius:6px}
 
-  table{border-collapse:collapse;width:100%;max-width:820px;margin-top:22px;font-size:15px}
-  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-  th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
-  td b{color:var(--ink)}
-  td:last-child,th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+  ul.simple{list-style:none;margin-top:8px}
+  ul.simple li{padding:9px 0;border-top:1px solid var(--line2);font-size:15.5px;color:var(--ink2);display:flex;gap:12px}
+  ul.simple li:last-child{border-bottom:1px solid var(--line2)}
+  ul.simple li .x{color:var(--accent2);font-family:var(--mono);font-size:12px;flex:0 0 auto;min-width:14px}
+  ul.simple li b{color:var(--ink)}
 
-  .term{background:var(--card);border-radius:11px;overflow:hidden;margin-top:22px;max-width:720px;box-shadow:0 24px 50px -26px rgba(24,19,16,.5)}
-  .term .bar{display:flex;gap:7px;padding:12px 15px;border-bottom:1px solid rgba(255,255,255,.1);align-items:center}
-  .term .bar i{width:10px;height:10px;border-radius:50%}
-  .term .bar .r{background:#ff5f57}.term .bar .y{background:#febc2e}.term .bar .g{background:#28c840}
-  .term .bar .t{margin-left:9px;font-family:var(--mono);font-size:11.5px;color:#8b93a3}
-  .term pre{padding:18px 20px;font-family:var(--mono);font-size:13.5px;line-height:1.75;color:#e9ecf3;overflow-x:auto;white-space:pre-wrap}
-  .term pre .c{color:var(--lilac)}.term pre .m{color:#77e0a6}.term pre .g{color:#8b93a3}
+  .term{background:var(--card);border-radius:10px;overflow:hidden;margin-top:16px;max-width:660px}
+  .term pre{padding:16px 18px;font-family:var(--mono);font-size:13px;line-height:1.8;color:#e9ecf3;overflow-x:auto;white-space:pre-wrap}
+  .term pre .c{color:#b3a8ff}.term pre .g{color:#8b93a3}
 
-  ul.li{list-style:none;margin-top:20px;max-width:70ch}
-  ul.li li{padding:11px 0;border-top:1px solid var(--line-soft);display:flex;gap:14px;font-size:15.5px;color:var(--ink-soft)}
-  ul.li li:last-child{border-bottom:1px solid var(--line-soft)}
-  ul.li li .b{color:var(--accent-ink);font-family:var(--mono);font-size:12px;flex:0 0 auto;min-width:16px}
-  ul.li li b{color:var(--ink);font-weight:650}
-
-  .pill{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:6px;background:var(--accent-soft);color:var(--accent-ink);margin-right:6px}
-  .note{border-left:3px solid var(--accent);background:var(--accent-soft);padding:14px 18px;border-radius:0 8px 8px 0;margin-top:22px;max-width:70ch;font-size:15px}
-  .note b{color:var(--ink)}
-  hr{border:0;border-top:1px solid var(--line);margin:0 0 34px}
-  footer{border-top:1px solid var(--line);padding-top:26px;color:var(--muted);font-size:14px}
-
-  .menu-btn{display:none;position:fixed;top:16px;right:16px;z-index:60;background:var(--ink);color:var(--paper);border:0;border-radius:9px;padding:10px 14px;font-family:var(--mono);font-size:12px;cursor:pointer}
-  @media (max-width:900px){
-    .side{position:fixed;left:0;top:0;z-index:55;background:var(--paper2);transform:translateX(-100%);transition:transform .25s}
-    .side.open{transform:none}.menu-btn{display:block}main{padding-top:64px}
-    .cmd{grid-template-columns:1fr;gap:4px}
+  footer{border-top:1px solid var(--line);padding-top:22px;color:var(--muted);font-size:14px}
+  .menu-btn{display:none;position:fixed;top:14px;right:14px;z-index:60;background:var(--ink);color:var(--paper);border:0;border-radius:8px;padding:9px 13px;font-family:var(--mono);font-size:11.5px;cursor:pointer}
+  @media (max-width:880px){
+    .side{position:fixed;left:0;top:0;z-index:55;background:#efeade;transform:translateX(-100%);transition:transform .25s}
+    .side.open{transform:none}.menu-btn{display:block}main{padding-top:58px}
+    .row{grid-template-columns:1fr;gap:2px}
   }
 </style>
 </head>
@@ -106,283 +82,240 @@
     <div class="logo"><span class="mk"></span><b>Agentic Marketers</b></div>
     <div class="ver">Vault OS 1.0</div>
     <nav>
-      <a href="#overview">Overview</a>
-      <a href="#start">Get started</a>
-      <div class="grp">Reference</div>
-      <a href="#commands">Commands (20)</a>
-      <a href="#roles">Roles (16)</a>
-      <a href="#skills">Skills (111)</a>
-      <a href="#systems">Systems · D100</a>
-      <div class="grp">How it thinks</div>
-      <a href="#routing">Routing</a>
-      <a href="#rules">Rules &amp; gates</a>
-      <a href="#workspace">Workspaces</a>
-      <a href="#memory">Memory</a>
-      <div class="grp">Operating</div>
-      <a href="#updating">Updating</a>
-      <a href="#structure">Folder map</a>
+      <a href="#what">What it is</a>
+      <a href="#commands">Commands</a>
+      <a href="#skills">Skills</a>
+      <a href="#rules">Rules</a>
+      <a href="#roles">Roles</a>
+      <a href="#d100">D100</a>
+      <a href="#install">Install</a>
+      <a href="#update">Update</a>
+      <a href="#folders">Folders</a>
     </nav>
   </aside>
 
   <main>
-    <!-- OVERVIEW -->
-    <section id="overview">
-      <div class="kicker">Documentation</div>
-      <h1>Vault OS <em>1.0</em></h1>
-      <p class="lede">Your marketing team as software. 111 skills, 16 specialist roles, and 20 commands that turn plain English into finished, quality-checked client work — running on your own computer.</p>
+    <section id="what">
+      <h1>Vault OS 1.0</h1>
+      <p class="sub">Your marketing team as software. It runs on your computer, knows your clients, and does the work.</p>
       <div class="stats">
         <div class="stat"><div class="n">111</div><div class="l">Skills</div></div>
-        <div class="stat"><div class="n">16</div><div class="l">Roles</div></div>
         <div class="stat"><div class="n">20</div><div class="l">Commands</div></div>
-        <div class="stat"><div class="n">17</div><div class="l">Gated outputs</div></div>
+        <div class="stat"><div class="n">16</div><div class="l">Roles</div></div>
+        <div class="stat"><div class="n">17</div><div class="l">Checked outputs</div></div>
       </div>
-      <h3>What it actually is</h3>
-      <p>The Vault is a folder on your computer that Claude Code reads. Inside it: the playbooks for every deliverable an agency sells, the personas that run them, your clients' real context, and the quality rules that stop bad work from shipping. You talk to it normally — it loads the right role, the right playbook, and the right client, then produces the work.</p>
-      <div class="note"><b>The difference from plain ChatGPT:</b> a chat has no memory of your business, no process, and no standard. The Vault has all three, permanently.</div>
     </section>
 
-    <!-- START -->
-    <section id="start">
-      <div class="kicker">Get started</div>
-      <h2>Install in 10 minutes</h2>
-      <p>Mac. You need a GitHub account we've granted access to, then two free tools and one line.</p>
-      <div class="term">
-        <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="t">Terminal</span></div>
-<pre><span class="g"># 1 · install Homebrew</span>
+    <section id="commands">
+      <h2>Commands</h2>
+      <p class="sub">Type these in Claude Code. Or just ask in plain English.</p>
+
+      <h3>Setup</h3>
+      <div class="row"><div class="k">/mybusiness</div><div class="v">Teach the Vault about your business. Run this first.</div></div>
+      <div class="row"><div class="k">/newclient</div><div class="v">Add a client and fill their profile, offer and voice.</div></div>
+      <div class="row"><div class="k">/am-init</div><div class="v">Set your business type so defaults fit you.</div></div>
+      <div class="row"><div class="k">/clientstatus</div><div class="v">See what each client has and what they need next.</div></div>
+
+      <h3>Systems</h3>
+      <div class="row"><div class="k">/d100</div><div class="v">The client getting machine. Setup, then builds free work for prospects.</div></div>
+      <div class="row"><div class="k">/pipeline</div><div class="v">Runs research, offer, copy, ads and page in one chain.</div></div>
+      <div class="row"><div class="k">/challenge</div><div class="v">Build a full 3 day challenge funnel launch.</div></div>
+
+      <h3>Make things</h3>
+      <div class="row"><div class="k">/copy</div><div class="v">Sales pages, emails, hooks, headlines, ad copy.</div></div>
+      <div class="row"><div class="k">/vsl</div><div class="v">Write a VSL script.</div></div>
+      <div class="row"><div class="k">/ads</div><div class="v">Meta and Google campaigns, creative briefs, scaling.</div></div>
+      <div class="row"><div class="k">/landingpage</div><div class="v">Build a landing page that converts.</div></div>
+      <div class="row"><div class="k">/seo</div><div class="v">SEO and AI search content, audits, schema.</div></div>
+      <div class="row"><div class="k">/newsletter</div><div class="v">Newsletter strategy and issues.</div></div>
+      <div class="row"><div class="k">/research</div><div class="v">Deep market research. 7 phases. Feeds everything else.</div></div>
+
+      <h3>Quality and upkeep</h3>
+      <div class="row"><div class="k">/review</div><div class="v">Audit your output against the rules before it ships.</div></div>
+      <div class="row"><div class="k">/vaulthealth</div><div class="v">Check the Vault is wired correctly.</div></div>
+      <div class="row"><div class="k">/update</div><div class="v">Pull the latest version. Your work is never touched.</div></div>
+      <div class="row"><div class="k">/checkpoint</div><div class="v">Save where you left off for next session.</div></div>
+      <div class="row"><div class="k">/newskill</div><div class="v">Turn your own process into a permanent skill.</div></div>
+      <div class="row"><div class="k">/map-session</div><div class="v">Visual walkthrough of what happened this session.</div></div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <p class="sub">111 playbooks. You never memorise these. Ask for the job and the right one loads.</p>
+
+      <div class="cat"><div class="head"><b>Ads</b><span>9</span></div><div class="chips">
+        <span class="chip">meta-ad-strategy</span><span class="chip">static-ad-creation</span><span class="chip">competitor-ad-teardown</span><span class="chip">animation-ad-scripting</span><span class="chip">ad-filming</span><span class="chip">launch-strategy</span><span class="chip">content-remarketing</span><span class="chip">x-ads</span><span class="chip">meta-official-docs</span></div></div>
+
+      <div class="cat"><div class="head"><b>Copy</b><span>7</span></div><div class="chips">
+        <span class="chip">direct-response-copy</span><span class="chip">vsl-scripting</span><span class="chip">copy-editing</span><span class="chip">humanizer</span><span class="chip">brand-voice</span><span class="chip">brand-positioning</span><span class="chip">positioning-angles</span></div></div>
+
+      <div class="cat"><div class="head"><b>Funnels and email</b><span>8</span></div><div class="chips">
+        <span class="chip">landing-page</span><span class="chip">challenge-funnel</span><span class="chip">webinar-scripting</span><span class="chip">jason-fladlien-one-to-many</span><span class="chip">email-flows</span><span class="chip">email-sequences</span><span class="chip">lead-magnet</span><span class="chip">confirmation-page</span></div></div>
+
+      <div class="cat"><div class="head"><b>SEO and content</b><span>13</span></div><div class="chips">
+        <span class="chip">seo-content</span><span class="chip">seo-audit</span><span class="chip">ai-seo</span><span class="chip">content-brief</span><span class="chip">local-seo</span><span class="chip">programmatic-seo</span><span class="chip">schema-markup</span><span class="chip">site-architecture</span><span class="chip">seo-reporting</span><span class="chip">social-content</span><span class="chip">newsletter</span><span class="chip">content-analyzer</span><span class="chip">content-atomizer</span></div></div>
+
+      <div class="cat"><div class="head"><b>Creative and design</b><span>16</span></div><div class="chips">
+        <span class="chip">creative-concepting</span><span class="chip">creative-critique</span><span class="chip">creative-strategy-brief</span><span class="chip">creative-testing-matrix</span><span class="chip">modular-creative-system</span><span class="chip">brand-identity</span><span class="chip">figma-foundations</span><span class="chip">figma-brand-kit</span><span class="chip">figma-static-ad-design</span><span class="chip">figma-ad-motion</span><span class="chip">figma-slides-deck</span><span class="chip">figma-creative-resize</span><span class="chip">figma-buzz-bulk</span><span class="chip">figma-shader-effects</span><span class="chip">figma-design-to-code</span><span class="chip">figma-weave-pipeline</span></div></div>
+
+      <div class="cat"><div class="head"><b>AI creative</b><span>14</span></div><div class="chips">
+        <span class="chip">ai-image-generation</span><span class="chip">ai-video-generation</span><span class="chip">ai-product-photo</span><span class="chip">ai-product-video</span><span class="chip">ai-3d-product</span><span class="chip">ai-talking-head</span><span class="chip">ai-ugc</span><span class="chip">ai-voice</span><span class="chip">ai-social-graphics</span><span class="chip">ai-typography</span><span class="chip">ai-ascii-art</span><span class="chip">ai-creative-strategist</span><span class="chip">scroll-stop-builder</span><span class="chip">scroll-stop-prompter</span></div></div>
+
+      <div class="cat"><div class="head"><b>Research</b><span>5</span></div><div class="chips">
+        <span class="chip">market-research</span><span class="chip">prospect-intel</span><span class="chip">keyword-research</span><span class="chip">competitor-alternatives</span><span class="chip">free-tool-strategy</span></div></div>
+
+      <div class="cat"><div class="head"><b>Offers</b><span>4</span></div><div class="chips">
+        <span class="chip">offer-creation</span><span class="chip">marketing-psychology</span><span class="chip">marketing-ideas</span><span class="chip">product-marketing-context</span></div></div>
+
+      <div class="cat"><div class="head"><b>Sales and outreach</b><span>7</span></div><div class="chips">
+        <span class="chip">dream-100-outreach</span><span class="chip">sales-closing</span><span class="chip">sales-enablement</span><span class="chip">client-retention</span><span class="chip">churn-prevention</span><span class="chip">referral-program</span><span class="chip">revops</span></div></div>
+
+      <div class="cat"><div class="head"><b>Conversion (CRO)</b><span>6</span></div><div class="chips">
+        <span class="chip">ab-test-setup</span><span class="chip">form-cro</span><span class="chip">signup-flow-cro</span><span class="chip">onboarding-cro</span><span class="chip">popup-cro</span><span class="chip">paywall-upgrade-cro</span></div></div>
+
+      <div class="cat"><div class="head"><b>Business ops</b><span>7</span></div><div class="chips">
+        <span class="chip">finance-ops</span><span class="chip">people-ops</span><span class="chip">product-ops</span><span class="chip">pipeline-management</span><span class="chip">ticket-triage</span><span class="chip">analytics-tracking</span><span class="chip">trust-asset-creation</span></div></div>
+
+      <div class="cat"><div class="head"><b>Vault tools</b><span>14</span></div><div class="chips">
+        <span class="chip">client-onboarding</span><span class="chip">client-voice</span><span class="chip">voice-check</span><span class="chip">quality-check-output</span><span class="chip">pipeline-orchestrator</span><span class="chip">new-sales-client-build</span><span class="chip">new-dwy-client-build</span><span class="chip">engine-workers</span><span class="chip">browserbase</span><span class="chip">deploy-to-vercel</span><span class="chip">ui-ux-pro-max</span><span class="chip">new-api-endpoint</span><span class="chip">add-agent-to-tools</span><span class="chip">debug-routing-failure</span></div></div>
+    </section>
+
+    <section id="rules">
+      <h2>Rules</h2>
+      <p class="sub">These are code, not suggestions. Bad work gets blocked before you see it.</p>
+
+      <h3>What it will never do</h3>
+      <ul class="simple">
+        <li><span class="x">✕</span><span><b>Never invent proof.</b> No fake stats, testimonials, case studies or guarantees. No real number means no number.</span></li>
+        <li><span class="x">✕</span><span><b>Never use em dashes.</b> They are an AI giveaway.</span></li>
+        <li><span class="x">✕</span><span><b>Never use AI phrases.</b> "Game changer", "leverage", "seamless", "in today's landscape" and 40 more are banned.</span></li>
+        <li><span class="x">✕</span><span><b>Never use AI rhythm.</b> Three short sentences then a long one. Stacked rhetorical questions. Repeating "it is not X, it is Y".</span></li>
+        <li><span class="x">✕</span><span><b>Never mix clients.</b> One job loads one client. It cannot borrow another client's data.</span></li>
+      </ul>
+
+      <h3>What it always does</h3>
+      <ul class="simple">
+        <li><span class="x">✓</span><span><b>Loads real context first.</b> Your client's voice, offer and proof before writing a word.</span></li>
+        <li><span class="x">✓</span><span><b>Follows your golden rules.</b> Each client's non negotiables block anything that breaks them.</span></li>
+        <li><span class="x">✓</span><span><b>Remembers corrections.</b> Fix it once and it stays fixed.</span></li>
+        <li><span class="x">✓</span><span><b>Fails closed.</b> If a check cannot pass, the work does not ship.</span></li>
+      </ul>
+
+      <h3>The 3 test for every claim</h3>
+      <ul class="simple">
+        <li><span class="x">1</span><span><b>Can you picture it?</b> Concrete, not vague.</span></li>
+        <li><span class="x">2</span><span><b>Could it be proven false?</b> Specific, not puffery.</span></li>
+        <li><span class="x">3</span><span><b>Could nobody else say it?</b> If a competitor could paste their logo on it, cut it.</span></li>
+      </ul>
+
+      <h3>When the checks run</h3>
+      <ul class="simple">
+        <li><span class="x">→</span><span><b>On save.</b> Golden rules check every file.</span></li>
+        <li><span class="x">→</span><span><b>Before you see it.</b> 17 output types checked for proof, specificity and structure.</span></li>
+        <li><span class="x">→</span><span><b>Before it sends.</b> Anything going out is checked first.</span></li>
+        <li><span class="x">→</span><span><b>Before it starts.</b> Empty client context blocks generic output.</span></li>
+      </ul>
+    </section>
+
+    <section id="roles">
+      <h2>Roles</h2>
+      <p class="sub">16 specialists. Call one with @name or just describe the job.</p>
+      <div class="row"><div class="k">@copywriter</div><div class="v">VSLs, pages, emails, hooks, ad copy</div></div>
+      <div class="row"><div class="k">@strategist</div><div class="v">Offers, positioning, market research</div></div>
+      <div class="row"><div class="k">@media-buyer</div><div class="v">Meta and Google ads, scaling, diagnostics</div></div>
+      <div class="row"><div class="k">@funnel-builder</div><div class="v">Pages, webinars, challenges, email flows</div></div>
+      <div class="row"><div class="k">@designer</div><div class="v">Big ideas, brand, Figma execution</div></div>
+      <div class="row"><div class="k">@creative-strategist</div><div class="v">Creative testing programmes</div></div>
+      <div class="row"><div class="k">@ai-creative</div><div class="v">AI images, video, UGC, voice</div></div>
+      <div class="row"><div class="k">@seo-aeo</div><div class="v">SEO and AI search</div></div>
+      <div class="row"><div class="k">@outreach</div><div class="v">Dream 100, cold outbound, retention</div></div>
+      <div class="row"><div class="k">@analyst</div><div class="v">Tracking, attribution, reporting</div></div>
+      <div class="row"><div class="k">@sales-pipeline</div><div class="v">Deal stages, follow up, forecasting</div></div>
+      <div class="row"><div class="k">@support</div><div class="v">Tickets, replies, churn saves</div></div>
+      <div class="row"><div class="k">@ops</div><div class="v">SOPs, runbooks, checklists</div></div>
+      <div class="row"><div class="k">@finance</div><div class="v">Invoices, P&amp;L, pricing maths</div></div>
+      <div class="row"><div class="k">@people</div><div class="v">Job descriptions, hiring, onboarding</div></div>
+      <div class="row"><div class="k">@product</div><div class="v">Roadmaps, specs, release notes</div></div>
+    </section>
+
+    <section id="d100">
+      <h2>D100</h2>
+      <p class="sub">Finds dream clients, builds them free work, pitches it. Type <code>/d100</code>.</p>
+
+      <h3>It asks 6 questions</h3>
+      <ul class="simple">
+        <li><span class="x">1</span><span>Which engine: VSL, Challenge, or Webinar</span></li>
+        <li><span class="x">2</span><span>Which niches to target</span></li>
+        <li><span class="x">3</span><span>Your API keys, each tested live</span></li>
+        <li><span class="x">4</span><span>Daily volume: 25, 50, 100 or 250</span></li>
+        <li><span class="x">5</span><span>Your booking link, contact and real proof</span></li>
+        <li><span class="x">6</span><span>Your proposal headline, written for you</span></li>
+      </ul>
+
+      <h3>Then per prospect</h3>
+      <ul class="simple">
+        <li><span class="x">1</span><span>Qualify. Poor fit leads are skipped.</span></li>
+        <li><span class="x">2</span><span>Research their real business and brand.</span></li>
+        <li><span class="x">3</span><span>Pick the angle.</span></li>
+        <li><span class="x">4</span><span>Build the funnel.</span></li>
+        <li><span class="x">5</span><span>Publish the proposal page.</span></li>
+        <li><span class="x">6</span><span>Send the email sequence.</span></li>
+      </ul>
+
+      <h3>Your dashboard</h3>
+      <ul class="simple">
+        <li><span class="x">→</span><span><b>Leads.</b> Your whole pipeline.</span></li>
+        <li><span class="x">→</span><span><b>Build.</b> Run a batch of 10 to 250 with a progress bar.</span></li>
+        <li><span class="x">→</span><span><b>Daily Volume.</b> How many new prospects come in each day.</span></li>
+        <li><span class="x">→</span><span><b>D100 Types.</b> Turn engines on and off.</span></li>
+        <li><span class="x">→</span><span><b>API Limits.</b> Usage and upgrade alerts.</span></li>
+      </ul>
+    </section>
+
+    <section id="install">
+      <h2>Install</h2>
+      <p class="sub">Mac. About 10 minutes, once.</p>
+      <div class="term"><pre><span class="g"># 1 install Homebrew</span>
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-<span class="g"># 2 · turn Homebrew on (shows nothing — that's normal)</span>
+<span class="g"># 2 turn it on (shows nothing, that is normal)</span>
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' &gt;&gt; ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-<span class="g"># 3 · install the two tools</span>
+<span class="g"># 3 install the tools</span>
 brew install git gh
 
-<span class="g"># 4 · log into GitHub FIRST (this order matters)</span>
+<span class="g"># 4 log into GitHub first</span>
 gh auth login
 
-<span class="g"># 5 · install the Vault</span>
-curl -fsSL <span class="c">https://agentic-marketers.vercel.app/update</span> | bash</pre>
-      </div>
-      <p style="margin-top:18px">Then open the <code>AgenticMarketersVault</code> folder in Claude Code and type <code>/mybusiness</code> to teach it about you.</p>
-      <div class="note"><b>Windows:</b> skip Homebrew. Install with <code>winget install --id Git.Git -e</code> and <code>winget install --id GitHub.cli -e</code>, then run steps 4–5 inside <b>Git Bash</b> (not PowerShell).</div>
+<span class="g"># 5 install the Vault</span>
+curl -fsSL <span class="c">https://agentic-marketers.vercel.app/update</span> | bash</pre></div>
+      <p class="sub" style="margin-top:14px">Then open the <code>AgenticMarketersVault</code> folder in Claude Code and type <code>/mybusiness</code>.</p>
+      <p class="sub" style="margin-top:10px"><b>Windows:</b> skip Homebrew. Use <code>winget install --id Git.Git -e</code> and <code>winget install --id GitHub.cli -e</code>, then do steps 4 and 5 in <b>Git Bash</b>.</p>
     </section>
 
-    <!-- COMMANDS -->
-    <section id="commands">
-      <div class="kicker">Reference</div>
-      <h2>Commands</h2>
-      <p>20 slash commands. Type them in Claude Code inside your Vault. Everything else you can just ask for in plain English — commands are the shortcuts for the things you do constantly.</p>
-
-      <h3>Setup &amp; context</h3>
-      <div class="cmd"><div class="c">/mybusiness</div><div class="d"><b>Fill or update your own business profile.</b><span class="when">Run this first. Teaches the Vault your offer, audience, voice and proof so nothing it writes is generic.</span></div></div>
-      <div class="cmd"><div class="c">/newclient</div><div class="d"><b>Guided client setup.</b><span class="when">Creates a client workspace and interviews you to fill their knowledge, offer, and voice foundations.</span></div></div>
-      <div class="cmd"><div class="c">/am-init</div><div class="d"><b>Tailor the Vault to your business type.</b><span class="when">Sets routing defaults (agency, coach, SaaS, ecommerce, creator, local, info-product, professional services).</span></div></div>
-      <div class="cmd"><div class="c">/clientstatus</div><div class="d"><b>Check client pipeline status.</b><span class="when">What's built, what's missing, and what each client needs next.</span></div></div>
-
-      <h3>Systems</h3>
-      <div class="cmd"><div class="c">/d100</div><div class="d"><b>The D100 outreach system.</b><span class="when">First run = guided setup (6 questions). After that it finds dream clients, builds them free work, publishes a proposal, and puts them into outreach. <a href="#systems">Full breakdown →</a></span></div></div>
-      <div class="cmd"><div class="c">/pipeline</div><div class="d"><b>Run the multi-agent marketing pipeline.</b><span class="when">Chains research → offer → copy → ads → page in one pass, each step feeding the next.</span></div></div>
-      <div class="cmd"><div class="c">/challenge</div><div class="d"><b>Build a challenge funnel launch.</b><span class="when">Full 3-day challenge: topics, slides, ads, registration and pitch structure.</span></div></div>
-
-      <h3>Deliverables</h3>
-      <div class="cmd"><div class="c">/copy</div><div class="d"><b>Run the copywriter.</b><span class="when">Sales pages, emails, hooks, headlines, ad copy — in the client's voice, gated by the copy rules.</span></div></div>
-      <div class="cmd"><div class="c">/vsl</div><div class="d"><b>Generate a VSL script.</b><span class="when">Video sales letter built on the research foundation, not generic templates.</span></div></div>
-      <div class="cmd"><div class="c">/ads</div><div class="d"><b>Run the ads agent.</b><span class="when">Meta and Google campaign structures, creative briefs, angles, scaling and diagnostics.</span></div></div>
-      <div class="cmd"><div class="c">/landingpage</div><div class="d"><b>Build a landing page.</b><span class="when">Structure, copy and CRO decisions for a page that converts, not just looks fine.</span></div></div>
-      <div class="cmd"><div class="c">/seo</div><div class="d"><b>Run the SEO agent.</b><span class="when">Content, technical audits, AI-search (AEO) optimisation, schema and local SEO.</span></div></div>
-      <div class="cmd"><div class="c">/newsletter</div><div class="d"><b>Run the newsletter agent.</b><span class="when">Content pillars, CTA strategy and on-voice issues.</span></div></div>
-      <div class="cmd"><div class="c">/research</div><div class="d"><b>Run the research agent (7-phase protocol).</b><span class="when">Market, avatar, competitor and voice-of-customer research. Produces the foundation every other deliverable reads.</span></div></div>
-
-      <h3>Quality &amp; maintenance</h3>
-      <div class="cmd"><div class="c">/review</div><div class="d"><b>Quality audit.</b><span class="when">Runs copy rules, voice match and cross-deliverable consistency over your output before it ships.</span></div></div>
-      <div class="cmd"><div class="c">/vaulthealth</div><div class="d"><b>Vault integrity check.</b><span class="when">Confirms roles, skills, routing and required files all resolve. Run it if something feels off.</span></div></div>
-      <div class="cmd"><div class="c">/update</div><div class="d"><b>Update the Vault.</b><span class="when">Pulls the latest skills, roles and systems. Never touches your clients, your data, or your <code>.env</code>.</span></div></div>
-      <div class="cmd"><div class="c">/checkpoint</div><div class="d"><b>Save session state to memory.</b><span class="when">Writes a breadcrumb so the next session picks up where you left off.</span></div></div>
-      <div class="cmd"><div class="c">/newskill</div><div class="d"><b>Create a custom skill.</b><span class="when">Turn your own repeatable process into a permanent Vault playbook.</span></div></div>
-      <div class="cmd"><div class="c">/map-session</div><div class="d"><b>Render a session walkthrough.</b><span class="when">A visual map of what happened in the session — useful for training and handoffs.</span></div></div>
+    <section id="update">
+      <h2>Update</h2>
+      <p class="sub">Open your Vault in Claude Code and type:</p>
+      <div class="term"><pre><span class="c">/update</span></pre></div>
+      <p class="sub" style="margin-top:14px">You get every new skill and fix. Your clients, your data and your custom work are never touched.</p>
     </section>
 
-    <!-- ROLES -->
-    <section id="roles">
-      <div class="kicker">Reference</div>
-      <h2>The 16 roles</h2>
-      <p>A role is who the Vault acts as. Each one loads its own playbooks, voice rules and quality gates. Call one with <code>@role</code> or just describe the job and it routes itself.</p>
-      <div class="grid2">
-        <div class="box"><div class="r">@copywriter</div><h4>Copywriter</h4><p>Direct-response copy: VSLs, sales pages, emails, hooks, headlines, ad copy.</p></div>
-        <div class="box"><div class="r">@strategist</div><h4>Strategist</h4><p>Offer architecture, positioning, market research and competitive intelligence.</p></div>
-        <div class="box"><div class="r">@media-buyer</div><h4>Media buyer</h4><p>Meta and Google campaigns, creative briefs, scaling and ad diagnostics.</p></div>
-        <div class="box"><div class="r">@funnel-builder</div><h4>Funnel builder</h4><p>Landing pages, webinars, challenges, email flows, lead magnets, CRO.</p></div>
-        <div class="box"><div class="r">@designer</div><h4>Creative director</h4><p>Big ideas, campaign platforms, brand identity and Figma execution.</p></div>
-        <div class="box"><div class="r">@creative-strategist</div><h4>Creative strategist</h4><p>Turns research + ad data into a modular creative testing programme.</p></div>
-        <div class="box"><div class="r">@ai-creative</div><h4>AI creative</h4><p>AI images, video, product shots, UGC, voice and social graphics.</p></div>
-        <div class="box"><div class="r">@seo-aeo</div><h4>SEO / AEO</h4><p>Search and AI-search: content, technical audits, schema, local SEO.</p></div>
-        <div class="box"><div class="r">@outreach</div><h4>Outreach</h4><p>Dream 100, cold outbound, sales enablement, retention and referrals.</p></div>
-        <div class="box"><div class="r">@analyst</div><h4>Analyst</h4><p>Attribution, GA4, conversion tracking, reporting and diagnosis.</p></div>
-        <div class="box"><div class="r">@sales-pipeline</div><h4>Revenue ops</h4><p>Deal stages, pipeline hygiene, follow-up cadence and forecasting.</p></div>
-        <div class="box"><div class="r">@support</div><h4>Support</h4><p>Ticket triage, on-voice replies, churn-save playbooks, help docs.</p></div>
-        <div class="box"><div class="r">@ops</div><h4>Ops</h4><p>SOPs, process docs, runbooks, checklists and internal automation.</p></div>
-        <div class="box"><div class="r">@finance</div><h4>Finance</h4><p>Invoices, P&amp;L review, cashflow snapshots and pricing maths.</p></div>
-        <div class="box"><div class="r">@people</div><h4>People</h4><p>Job descriptions, hiring scorecards and team onboarding.</p></div>
-        <div class="box"><div class="r">@product</div><h4>Product</h4><p>Roadmaps, feature specs, release notes and changelogs.</p></div>
-      </div>
+    <section id="folders">
+      <h2>Folders</h2>
+      <div class="term"><pre><span class="c">Roles/</span>        16 specialists
+<span class="c">Skills/</span>       111 playbooks
+<span class="c">Agents/</span>       D100 and runtime agents
+<span class="c">Clients/</span>      one folder per client  <span class="g">your data</span>
+<span class="c">MyBusiness/</span>   your own business      <span class="g">your data</span>
+<span class="c">Custom/</span>       your overrides, these win  <span class="g">your data</span>
+<span class="c">Context/</span>      copy rules and doctrine
+<span class="c">Scripts/</span>      the checks and installers
+<span class="c">.claude/</span>      the 20 commands</pre></div>
+      <p class="sub" style="margin-top:14px">The three marked "your data" survive every update.</p>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills">
-      <div class="kicker">Reference</div>
-      <h2>111 skills</h2>
-      <p>A skill is an executable playbook — the actual step-by-step for one deliverable. Roles load them; you can also call one directly. 91 of the 111 are marketing.</p>
-      <table>
-        <tr><th>Family</th><th>What's in it</th><th>Skills</th></tr>
-        <tr><td><b>Creative</b></td><td>Big ideas, brand identity, Figma ad design, motion, decks</td><td>16</td></tr>
-        <tr><td><b>AI-Creative</b></td><td>AI images, video, UGC, product shots, voice, ASCII</td><td>14</td></tr>
-        <tr><td><b>SEO</b></td><td>Content briefs, technical audits, AEO, schema, local, newsletter</td><td>11</td></tr>
-        <tr><td><b>Ads</b></td><td>Meta strategy, static ads, X ads, teardowns, official Meta docs</td><td>9</td></tr>
-        <tr><td><b>Funnels</b></td><td>Challenge, webinar, VSL, landing pages, email flows</td><td>8</td></tr>
-        <tr><td><b>Sales</b></td><td>Dream 100, closing, enablement, retention, revops</td><td>7</td></tr>
-        <tr><td><b>Copy</b></td><td>VSL scripting, humanizer, templates, module map</td><td>7</td></tr>
-        <tr><td><b>CRO</b></td><td>Conversion optimisation and testing</td><td>6</td></tr>
-        <tr><td><b>Research</b></td><td>Market research, prospect intel, keywords, competitor alternatives</td><td>5</td></tr>
-        <tr><td><b>Offers</b></td><td>Offer creation, pricing, guarantees, stacking</td><td>4</td></tr>
-        <tr><td><b>Business ops</b></td><td>Finance, People, Product, Sales-Ops, Support</td><td>5</td></tr>
-        <tr><td><b>Vault ops</b></td><td>voice-check, client-voice, onboarding, orchestration, deploy, engine-workers</td><td>19</td></tr>
-      </table>
-      <p style="margin-top:20px">You never need to memorise these. Describe the job and the router picks the skill. <code>Skills/INDEX.md</code> lists all 111 if you want to browse.</p>
-    </section>
-
-    <!-- SYSTEMS -->
-    <section id="systems">
-      <div class="kicker">Systems</div>
-      <h2>D100 — the client-getting machine</h2>
-      <p>The flagship system. It finds your dream clients, builds each one a finished funnel for free, publishes it as a proposal page, and puts them into an email sequence. You show up as the person who already did the work.</p>
-      <h3>Setup: 6 questions</h3>
-      <ul class="li">
-        <li><span class="b">1</span><span><b>Which engine?</b> VSL, Challenge Funnel, or Webinar — one or more. Toggle any on/off later from the dashboard.</span></li>
-        <li><span class="b">2</span><span><b>Niches</b> — who to target. Only asked for the engines you turned on.</span></li>
-        <li><span class="b">3</span><span><b>Keys</b> — Vercel, Instantly, plus Apollo and/or Apify. Each one is tested live before it's saved.</span></li>
-        <li><span class="b">4</span><span><b>Daily volume</b> — 25 / 50 / 100 / 250 new prospect builds a day.</span></li>
-        <li><span class="b">5</span><span><b>Your details + proof</b> — booking link, contact, and results you can honestly claim.</span></li>
-        <li><span class="b">6</span><span><b>Your headline</b> — the copywriter drafts your proposal hook from that proof.</span></li>
-      </ul>
-      <h3>Then, per prospect</h3>
-      <ul class="li">
-        <li><span class="b">→</span><span><b>Qualify</b> — poor-fit leads are skipped, never built.</span></li>
-        <li><span class="b">→</span><span><b>Research</b> — their real offer, audience, proof and brand colours.</span></li>
-        <li><span class="b">→</span><span><b>Angle</b> — a sharp hook framed to the market they actually serve.</span></li>
-        <li><span class="b">→</span><span><b>Build</b> — the funnel and assets for their track.</span></li>
-        <li><span class="b">→</span><span><b>Proposal</b> — a live page with your identity, their research, real proof only.</span></li>
-        <li><span class="b">→</span><span><b>Outreach</b> — a 3-email sequence, sent and tracked automatically.</span></li>
-      </ul>
-      <h3>The dashboard</h3>
-      <p>A private web dashboard deploys during setup: <b>Leads</b> (your pipeline), <b>Build</b> (run a batch of 10–250 with a live progress bar), <b>Daily Volume</b>, <b>D100 Types</b> (toggle engines), <b>Scheduler</b>, and <b>API Limits</b> (usage with upgrade alerts). Every send, open and reply marks itself on the lead automatically.</p>
-    </section>
-
-    <!-- ROUTING -->
-    <section id="routing">
-      <div class="kicker">How it thinks</div>
-      <h2>Routing</h2>
-      <p>You don't pick the skill. You describe the job and the Vault routes it, in this order:</p>
-      <ul class="li">
-        <li><span class="b">1</span><span><b>Slash command</b> — if you typed one, it wins.</span></li>
-        <li><span class="b">2</span><span><b>Your overrides</b> — anything in <code>Custom/</code> beats the defaults.</span></li>
-        <li><span class="b">3</span><span><b>Phrase match</b> — the trigger map maps what you said to a role.</span></li>
-        <li><span class="b">4</span><span><b>Multi-step request</b> — chains several roles into a pipeline.</span></li>
-        <li><span class="b">5</span><span><b>Fallback</b> — the skill resolver searches the whole library.</span></li>
-      </ul>
-      <div class="note">Say <b>"write me an email for Acme"</b> and it loads the copywriter, Acme's voice and offer, the email playbook, and the quality gates — without you naming any of them.</div>
-    </section>
-
-    <!-- RULES -->
-    <section id="rules">
-      <div class="kicker">How it thinks</div>
-      <h2>Rules &amp; quality gates</h2>
-      <p>This is what separates the Vault from a chat window. The rules aren't suggestions in a prompt — they're code that blocks bad output before you see it.</p>
-
-      <h3>The hard rules</h3>
-      <ul class="li">
-        <li><span class="b">✕</span><span><b>Never invent proof.</b> No fabricated stats, testimonials, case studies or guarantees. If there's no real number, the copy ships without one.</span></li>
-        <li><span class="b">✕</span><span><b>No em dashes, no AI tells.</b> A banned-phrase list kills "in today's landscape", "game-changer", "leverage", "seamless" and dozens more.</span></li>
-        <li><span class="b">✕</span><span><b>No AI cadence.</b> Three punchy sentences then a long one, stacked rhetorical questions, repeated "it's not X, it's Y" — all flagged.</span></li>
-        <li><span class="b">✓</span><span><b>Client isolation is absolute.</b> One deliverable loads exactly one client's data. Never borrows from another.</span></li>
-        <li><span class="b">✓</span><span><b>Golden rules per client.</b> Each client's non-negotiables (never say X, always say Y) hard-block output that breaks them.</span></li>
-      </ul>
-
-      <h3>The three-test</h3>
-      <p>Every headline and claim must pass all three, or it gets cut: <b>Can the reader picture it?</b> · <b>Could it be proven false?</b> (specific, not vague) · <b>Could nobody else say it?</b> (ownable, not a category cliché).</p>
-
-      <h3>Where the gates fire</h3>
-      <table>
-        <tr><th>Moment</th><th>What runs</th></tr>
-        <tr><td><b>On write</b></td><td>Golden rules check every file as it's saved</td></tr>
-        <tr><td><b>Before you see it</b></td><td>The deliverable gate scans 17 output types for specificity, proof and structure</td></tr>
-        <tr><td><b>Before it sends</b></td><td>The send gate checks anything going outbound</td></tr>
-        <tr><td><b>Before generating</b></td><td>Context readiness blocks generic output when a client's context is empty</td></tr>
-        <tr><td><b>On creative</b></td><td>The creative gate blocks design work with no concepts or a failed critique</td></tr>
-      </table>
-      <div class="note"><b>Fail-closed:</b> if a gate can't reach a verdict, the work does not ship. Silence is never treated as a pass.</div>
-    </section>
-
-    <!-- WORKSPACE -->
-    <section id="workspace">
-      <div class="kicker">How it thinks</div>
-      <h2>Workspaces</h2>
-      <p>Every deliverable belongs to exactly one business context, and the Vault resolves it before writing a word.</p>
-      <table>
-        <tr><th>Workspace</th><th>Who it's for</th></tr>
-        <tr><td><code>Clients/{name}</code></td><td>Work for a specific client</td></tr>
-        <tr><td><code>MyBusiness</code></td><td>Your own business — treated exactly like a client</td></tr>
-        <tr><td><code>Projects/{name}</code></td><td>A launch or campaign that isn't either</td></tr>
-      </table>
-      <p style="margin-top:18px">Each holds the same things: the business profile, the offer/copy/research foundations, the voice samples and the golden rules. Name a client and it loads theirs. Name none and it uses yours.</p>
-    </section>
-
-    <!-- MEMORY -->
-    <section id="memory">
-      <div class="kicker">How it thinks</div>
-      <h2>Memory</h2>
-      <p>The Vault gets better the more you use it. Correct it once and the correction sticks.</p>
-      <ul class="li">
-        <li><span class="b">→</span><span><b>Corrections are captured automatically.</b> When you say "no, that's wrong," it's logged and structured.</span></li>
-        <li><span class="b">→</span><span><b>Phrase-level corrections become hard rules.</b> Tell it never to say something and it becomes a blocking gate, not a note.</span></li>
-        <li><span class="b">→</span><span><b>Session breadcrumbs</b> mean the next session knows what the last one did.</span></li>
-      </ul>
-    </section>
-
-    <!-- UPDATING -->
-    <section id="updating">
-      <div class="kicker">Operating</div>
-      <h2>Updating</h2>
-      <p>Open your Vault in Claude Code and type:</p>
-      <div class="term">
-        <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="t">Claude Code</span></div>
-<pre><span class="c">/update</span></pre>
-      </div>
-      <p style="margin-top:18px">It pulls every new skill, role, system and fix. <b>Your work is never touched</b> — clients, MyBusiness, <code>.env</code>, custom skills and memory are all protected, and a backup is taken before anything merges.</p>
-    </section>
-
-    <!-- STRUCTURE -->
-    <section id="structure">
-      <div class="kicker">Operating</div>
-      <h2>Folder map</h2>
-      <div class="term">
-        <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="t">AgenticMarketersVault</span></div>
-<pre><span class="c">Roles/</span>          16 specialist personas
-<span class="c">Skills/</span>         111 executable playbooks
-<span class="c">Agents/</span>         D100 + runtime agents
-<span class="c">Clients/</span>        one folder per client <span class="g">(your data)</span>
-<span class="c">MyBusiness/</span>     your own business <span class="g">(your data)</span>
-<span class="c">Context/</span>        marketing doctrine, copy rules, swipe
-<span class="c">Custom/</span>         your overrides — always win <span class="g">(your data)</span>
-<span class="c">Scripts/</span>        the gates, validators and installers
-<span class="c">.claude/</span>        the 20 commands + hooks</pre>
-      </div>
-      <p style="margin-top:18px">The three marked <span class="pill">your data</span> are yours alone and survive every update.</p>
-    </section>
-
-    <footer>
-      <p><b>Vault OS 1.0</b> · Agentic Marketers · Install with one line, update with <code>/update</code>.</p>
-    </footer>
+    <footer>Vault OS 1.0 · Agentic Marketers</footer>
   </main>
 </div>
 <script>

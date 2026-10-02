@@ -59,11 +59,13 @@ fi
 # --- 4. install (first run) or update (every run after) ---------------------
 if [ -f "$VAULT_DIR/AGENTS.md" ] && [ -d "$VAULT_DIR/Adapters" ]; then
   say "Updating your vault at $VAULT_DIR ..."
-  if [ -f "$VAULT_DIR/Scripts/install/update-vault.sh" ]; then
-    ( cd "$VAULT_DIR" && bash Scripts/install/update-vault.sh )
-  else
-    die "Vault found but its updater is missing. Contact support."
-  fi
+  # Run the updater from a fresh copy of the template, never the vault's own
+  # copy: an older updater cannot apply what a newer release needs.
+  FRESH="$(mktemp -d)"
+  trap 'rm -rf "$FRESH"' EXIT
+  git clone --depth 1 -q "$REPO_URL" "$FRESH/template" \
+    || die "Could not download the latest vault. Re-run the command to try again."
+  bash "$FRESH/template/Scripts/install/update-vault.sh" --vault "$VAULT_DIR"
   say "Up to date. Your clients, .env, and MyBusiness were left untouched."
 elif [ -e "$VAULT_DIR" ] && [ -n "$(ls -A "$VAULT_DIR" 2>/dev/null)" ]; then
   die "$VAULT_DIR already exists and is not a vault.
